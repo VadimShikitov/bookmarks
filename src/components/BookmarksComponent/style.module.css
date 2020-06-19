@@ -1,6 +1,5 @@
 .main_bookmark {
-    margin: 10px;
-    background-color: Gainsboro;
+    margin-left: 200px;
     padding: 5px;
 }
 
@@ -25,7 +24,7 @@
 }
 
 .tag {
-    padding: 6px;
+    padding: 2px;
     margin: 5px;
     background-color: greenyellow;
 }

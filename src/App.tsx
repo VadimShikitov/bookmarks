@@ -1,10 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { MenuComponent } from './components/MenuComponent';
-import { BookmarksComponent } from './components/BookmarksComponent';
+import { Routes } from './components/Routes';
 
 const App: React.FC = () => {
-  return <BookmarksComponent />;
+  return (
+    <BrowserRouter>
+      <div className='main'>
+        <Routes />
+      </div>
+    </BrowserRouter>
+  );
 };
 
 export default App;
