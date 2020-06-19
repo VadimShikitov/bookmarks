@@ -1,0 +1,31 @@
+.main_bookmark {
+    margin: 10px;
+    background-color: Gainsboro;
+    padding: 5px;
+}
+
+.bookmark {
+    display: flex;
+}
+
+.link {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.text {
+    padding: 10px;
+    color: red
+}
+
+.time {
+    color: black;
+    padding: 10px;
+}
+
+.tag {
+    padding: 6px;
+    margin: 5px;
+    background-color: greenyellow;
+}
