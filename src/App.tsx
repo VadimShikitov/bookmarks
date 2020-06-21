@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Routes } from './components/Routes';
-import { Provider } from 'react-redux';
-import { store } from '../src/store';
+import { useDispatch } from 'react-redux';
+import { initApp } from '../src/ducks/app/actions';
 
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initApp());
+  }, [dispatch]);
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className='main'>
-          <Routes />
-        </div>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <div className='main'>
+        <Routes />
+      </div>
+    </BrowserRouter>
   );
 };
 

@@ -27,10 +27,11 @@ export const BookmarksComponent: React.FC<BookmarksComponentProps> = ({
           {name}
         </a>
         <span className={styles.text}>{URL}</span>
-        <a href='#' className={styles.link}>
+        <a href='_blank' className={styles.link}>
           Изменить
         </a>
         <a
+          href='_blank'
           onClick={() => deleteBookmarkHandler(id)}
           data-id={id}
           className={styles.link}

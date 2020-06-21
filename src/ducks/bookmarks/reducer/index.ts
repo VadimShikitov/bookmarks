@@ -4,6 +4,7 @@ import {
   DELETE_BOOKMARK,
   REMOVE_ALL_BOOKMARKS,
 } from '../types';
+import { INIT_APP } from '../../app/types';
 import { bookmarksActionTypes, bookmarkType } from '../actions';
 
 export type initialStateType = {
@@ -23,6 +24,22 @@ export const bookmarksReducer = (
   action: bookmarksActionTypes,
 ): initialStateType => {
   switch (action.type) {
+    case INIT_APP: {
+      const storageBookmarks: any = window.localStorage.getItem('bookmarks');
+      const storageIds: any = window.localStorage.getItem('ids');
+      const bookmarksForStore =
+        storageBookmarks !== null
+          ? JSON.parse(storageBookmarks).reduce((acc: any, bookmark: any) => {
+              acc[bookmark.id] = bookmark;
+              return acc;
+            }, {})
+          : {};
+      const idsForStore = JSON.parse(storageIds) || [];
+      return {
+        bookmarks: bookmarksForStore,
+        ids: idsForStore,
+      };
+    }
     case ADD_BOOKMARK: {
       return {
         bookmarks: {

@@ -5,13 +5,10 @@ import { Link } from 'react-router-dom';
 import { ROOT, CREATE } from '../../constants/routes';
 
 type MenuComponentProps = {
-  removeAllBookmarksHandler(): void,
+  removeAllBookmarksHandler(event: React.MouseEvent<HTMLButtonElement>): void,
 };
 
-export const MenuComponent: React.FC<MenuComponentProps> = (
-  needDeletedButton,
-  removeAllBookmarksHandler,
-) => {
+export const MenuComponent: React.FC<MenuComponentProps> = removeAllBookmarksHandler => {
   return (
     <div>
       <ul className={styles.menu_list}>

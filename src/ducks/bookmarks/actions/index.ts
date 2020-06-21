@@ -5,6 +5,8 @@ import {
   REMOVE_ALL_BOOKMARKS,
 } from '../types';
 
+import { initAppActionType } from '../../app/actions';
+
 export type bookmarkType = {
   name: string,
   URL: string,
@@ -55,4 +57,5 @@ export type bookmarksActionTypes =
   | addBookmarkActionType
   | editBookmarkActionType
   | deleteBookmarkActionType
-  | removeAllBookmarksActionType;
+  | removeAllBookmarksActionType
+  | initAppActionType;
