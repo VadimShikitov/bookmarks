@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './style.module.css';
 import { Link } from 'react-router-dom';
 import { ROOT, CREATE } from '../../constants/routes';
 
-export const MenuComponent: React.FC = () => {
+type MenuComponentProps = {
+  removeAllBookmarksHandler(): void,
+};
+
+export const MenuComponent: React.FC<MenuComponentProps> = (
+  needDeletedButton,
+  removeAllBookmarksHandler,
+) => {
   return (
     <div>
       <ul className={styles.menu_list}>
@@ -18,11 +26,15 @@ export const MenuComponent: React.FC = () => {
           </Link>
         </li>
         <li>
-          <a href='' className={styles.link}>
+          <a onClick={removeAllBookmarksHandler} className={styles.link}>
             Удалить все
           </a>
         </li>
       </ul>
     </div>
   );
+};
+
+MenuComponent.propTypes = {
+  removeAllBookmarksHandler: PropTypes.func.isRequired,
 };

@@ -3,11 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import { CREATE, ROOT } from '../constants/routes';
 import { BookmarksViewContainer } from '../containers/BookmarksViewContainer';
 import { CreateBookmarkContainer } from '../containers/CreateBookmarkContainer';
-import { MenuComponent } from './MenuComponent';
+import { MenuContainer } from '../containers/MenuContainer';
 
 export const Routes: React.FC = () => (
   <>
-    <MenuComponent />
+    <MenuContainer />
     <Switch>
       <Route path={ROOT} exact component={BookmarksViewContainer} />
       <Route path={CREATE} exact component={CreateBookmarkContainer} />

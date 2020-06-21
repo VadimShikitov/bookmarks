@@ -10,4 +10,5 @@
     display: block;
     padding: 12px;
     text-decoration: none;
+    cursor: pointer;
 }

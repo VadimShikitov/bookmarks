@@ -1,14 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './style.module.css';
 
 interface CreateBookmarComponentProps {
   onChangeHandler(event: React.ChangeEvent<HTMLInputElement>): void;
   createBookmark(event: React.MouseEvent<HTMLButtonElement>): void;
+  cancelHandler(): void;
 }
 
 export const CreateBookmarkComponent: React.FC<CreateBookmarComponentProps> = ({
   onChangeHandler,
   createBookmark,
+  cancelHandler,
 }) => {
   return (
     <div className={styles.container}>
@@ -41,11 +44,19 @@ export const CreateBookmarkComponent: React.FC<CreateBookmarComponentProps> = ({
         />
       </div>
       <div className={styles.buttons}>
-        <button className={styles.buttons_cancel}>Отмена</button>
+        <button className={styles.buttons_cancel} onClick={cancelHandler}>
+          Отмена
+        </button>
         <button className={styles.buttons_add} onClick={createBookmark}>
           Добавить закладку
         </button>
       </div>
     </div>
   );
+};
+
+CreateBookmarkComponent.propTypes = {
+  onChangeHandler: PropTypes.func.isRequired,
+  createBookmark: PropTypes.func.isRequired,
+  cancelHandler: PropTypes.func.isRequired,
 };
